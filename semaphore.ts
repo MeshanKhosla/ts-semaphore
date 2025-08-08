@@ -19,7 +19,7 @@ class Semaphore {
     /**
      * @description Waits for the semaphore to be available.
      */
-    async down() {
+    down() {
         if (this.capacityLeft > 0) {
             this.capacityLeft--;
             return;
@@ -34,7 +34,7 @@ class Semaphore {
      * @description Releases the semaphore. Upping the semaphore more times than it was downed
      * is expected to be handled by the caller, we intentionally do not throw an error in this case.
      */
-    async up() {
+    up() {
         if (this.queue.length === 0) {
             // No one is waiting, so we can return the capacity spot!
             this.capacityLeft++;
